@@ -3,6 +3,7 @@
 /build/
 /bin/
 /.settings/
+.idea/
 .project
 .classpath
 

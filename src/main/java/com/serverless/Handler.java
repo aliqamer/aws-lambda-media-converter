@@ -39,7 +39,7 @@ public class Handler implements RequestHandler<S3Event, ApiGatewayResponse> {
 
 	@Override
 	public ApiGatewayResponse handleRequest(S3Event input, Context context) {
-		LOG.info("received: " + input);
+		LOG.info("handleRequest() : received: " + input);
 
 		context.getLogger().log("Input: " + input);
 		context.getLogger().log("PipelineId: " + System.getenv(ELASTIC_TRANSCODER_PIPELINE_ID));
@@ -66,8 +66,8 @@ public class Handler implements RequestHandler<S3Event, ApiGatewayResponse> {
 		// Create the Transcoder Job request
 		CreateJobRequest createJobRequest = new CreateJobRequest()
 				.withPipelineId(System.getenv(ELASTIC_TRANSCODER_PIPELINE_ID)).withInput(transcoderJobInput)
-	//				.withOutputKeyPrefix(OUTPUT_KEY_PREFIX).withOutputs(transcoderJobOutputs);
-				.withOutputs(transcoderJobOutputs);
+				.withOutputKeyPrefix(System.getenv(OUTPUT_KEY_PREFIX)).withOutputs(transcoderJobOutputs);
+//				.withOutputs(transcoderJobOutputs);
 
 		// Create the Transcoder Job
 		elasticTranscoder.createJob(createJobRequest);

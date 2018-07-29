@@ -36,7 +36,7 @@ provider:
   environment:
       ELASTIC_TRANSCODER_PIPELINE_ID: "1532808707230-yaut1j"
       OUTPUT_VIDEO_FORMAT: "mp4"
-      OUTPUT_KEY_PREFIX: "/output-videos/"
+      OUTPUT_KEY_PREFIX: "converted-videos/"
 custom:
   bucket: mediainputbucket
 
