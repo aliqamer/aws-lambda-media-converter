@@ -17,5 +17,8 @@ Elastic transcoder will then execute job and store the convered media file to ou
 command to deploy application in aws lambda
 > sls deploy -v
 
+to deploy only function without updating stack
+> sls deploy function -f media-converter
+
 to delete stack in aws
 > sls remove
